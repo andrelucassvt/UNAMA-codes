@@ -5,9 +5,8 @@ create table academia(
 
 create table aluno (
 	matricula int primary key,
-    cnpj int,
-	nome varchar(100) not null check(length(nome) >2),
-    constraint pk_academia foreign key(cnpj) references academia
+    cpf int,
+	nome varchar(100) not null check(length(nome) >2)
 );
 
 create table matricula(
@@ -37,6 +36,9 @@ create table itemMatricula(
 );
 
 insert into academia values('123456','Marajó Academy');
+insert into academia values('442145', 'Top forma'); 
+
+alter table aluno add constraint pk_aluno unique(cnpj,cpf);
 
 insert into modalidade values(default,'20',' Natação','60.0'), (default,'20','Futebol','100'),(default,'20','Corrida','30.0'),
 (default,'20','Vôlei','80.0'),(default,'20','Luta','100.0');
