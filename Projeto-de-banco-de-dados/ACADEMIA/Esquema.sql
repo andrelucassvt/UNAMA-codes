@@ -12,11 +12,13 @@ create table aluno (
 create table matricula(
 	idMatricula int not null primary key auto_increment,
     matricula int not null,
+    cnpj int,
     idModalidade int not null,
     situacao enum("A","I"),
     dataMatricula date,
     constraint pk_aluno foreign key (matricula) references aluno,
-    constraint pk_modalidade foreign key (idModalidade) references modalidade
+    constraint pk_modalidade foreign key (idModalidade) references modalidade,
+    constraint pk_academia foreign key (cnpj) references academia
 );
 
 create table modalidade(
